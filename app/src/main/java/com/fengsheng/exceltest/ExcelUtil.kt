@@ -83,7 +83,6 @@ object ExcelUtil {
         try {
             val file = File(filePath)
             if (!file.exists()) {
-
                 Log.d("ExcelUtil", "文件创建：${file.exists()}")
                 file.createNewFile()
                 Log.d("ExcelUtil", "文件创建：${file.exists()}")
@@ -92,11 +91,11 @@ object ExcelUtil {
             }
             workbook = Workbook.createWorkbook(file)
             //设置表格页数多页
-            for (i in 0.rangeTo(sheetNum)) {
+            for (i in 1.rangeTo(sheetNum)) {
                 val sheet = workbook.createSheet("$sheetName $i", i)
                 //创建标题栏
                 sheet.addCell(Label(0, 0, filePath, arial14format) as WritableCell)
-                for (col in 0..colName.size) {
+                for (col in colName.indices) {
                     sheet.addCell(Label(col, 0, colName[col], arial10format))
                 }
                 //设置行高
@@ -140,11 +139,10 @@ object ExcelUtil {
                 inputStream = FileInputStream(File(fileName))
                 val workbook = Workbook.getWorkbook(inputStream)
                 writeBook = Workbook.createWorkbook(File(fileName), workbook)
-                val sheet = writeBook.getSheet(sheetNum)
+                val sheet = writeBook.getSheet(sheetNum-1)
                 for (j in 0..objList.size) {
                     val demoBean: DeviceDataBean = objList[j] as DeviceDataBean
-                    val list: MutableList<String> =
-                        ArrayList()
+                    val list: MutableList<String> = ArrayList()
                     list.add(demoBean.id.toString())
                     list.add(demoBean.situation)
                     list.add(demoBean.date)
