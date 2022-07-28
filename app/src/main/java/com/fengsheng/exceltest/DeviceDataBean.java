@@ -5,106 +5,90 @@ package com.fengsheng.exceltest;
  */
 //@Entity
 public class DeviceDataBean {
-    //    @Id(autoincrement = true)
-    private Long id;
+    private String arresterName;
+    private float voltageLevel;
+    private int testModeCode;
+    private String testMode;
+    private int referenceSourceCode;
+    private String referenceSource;
+    private int referencePhaseCode;
+    private String referencePhase;
 
-    //    @Index()
-    private String situation;
-    private String date;
-    private int deviceNum;
-    private int identity;
-    private float temperature;
-    private int power;
-    private int distance;
-    private int voltageLevel;
-
-    //    @Generated(hash = 1569667546)
-    public DeviceDataBean(Long id, String situation, String date, int deviceNum, int identity, float temperature,
-                          int power, int distance, int voltageLevel) {
-        this.id = id;
-        this.situation = situation;
-        this.date = date;
-        this.deviceNum = deviceNum;
-        this.identity = identity;
-        this.temperature = temperature;
-        this.power = power;
-        this.distance = distance;
+    public DeviceDataBean(
+            String arresterName, float voltageLevel, int testModeCode, String testMode,
+            int referenceSourceCode, String referenceSource, int referencePhaseCode,
+            String referencePhase) {
+        this.arresterName = arresterName;
         this.voltageLevel = voltageLevel;
+        this.testModeCode = testModeCode;
+        this.testMode = testMode;
+        this.referenceSourceCode = referenceSourceCode;
+        this.referenceSource = referenceSource;
+        this.referencePhaseCode = referencePhaseCode;
+        this.referencePhase = referencePhase;
     }
 
-    //    @Generated(hash = 475741313)
-    public DeviceDataBean() {
+    public String getArresterName() {
+        return arresterName;
     }
 
-    public Long getId() {
-        return id;
+    public void setArresterName(String arresterName) {
+        this.arresterName = arresterName;
     }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getSituation() {
-        return situation;
-    }
-
-    public void setSituation(String situation) {
-        this.situation = situation;
-    }
-
-    public int getDeviceNum() {
-        return deviceNum;
-    }
-
-    public void setDeviceNum(int deviceNum) {
-        this.deviceNum = deviceNum;
-    }
-
-    public float getTemperature() {
-        return temperature;
-    }
-
-    public void setTemperature(float temperature) {
-        this.temperature = temperature;
-    }
-
-    public int getPower() {
-        return power;
-    }
-
-    public void setPower(int power) {
-        this.power = power;
-    }
-
-    public String getDate() {
-        return date;
-    }
-
-    public void setDate(String date) {
-        this.date = date;
-    }
-
-    public int getIdentity() {
-        return identity;
-    }
-
-    public void setIdentity(int identity) {
-        this.identity = identity;
-    }
-
-    public int getDistance() {
-        return distance;
-    }
-
-    public void setDistance(int distance) {
-        this.distance = distance;
-    }
-
-    public int getVoltageLevel() {
+    public float getVoltageLevel() {
         return voltageLevel;
     }
 
-    public void setVoltageLevel(int voltageLevel) {
+    public void setVoltageLevel(float voltageLevel) {
         this.voltageLevel = voltageLevel;
+    }
+
+    public int getTestModeCode() {
+        return testModeCode;
+    }
+
+    public void setTestModeCode(int testModeCode) {
+        this.testModeCode = testModeCode;
+    }
+
+    public String getTestMode() {
+        return testMode;
+    }
+
+    public void setTestMode(String testMode) {
+        this.testMode = testMode;
+    }
+
+    public int getReferenceSourceCode() {
+        return referenceSourceCode;
+    }
+
+    public void setReferenceSourceCode(int referenceSourceCode) {
+        this.referenceSourceCode = referenceSourceCode;
+    }
+
+    public String getReferenceSource() {
+        return referenceSource;
+    }
+
+    public void setReferenceSource(String referenceSource) {
+        this.referenceSource = referenceSource;
+    }
+
+    public int getReferencePhaseCode() {
+        return referencePhaseCode;
+    }
+
+    public void setReferencePhaseCode(int referencePhaseCode) {
+        this.referencePhaseCode = referencePhaseCode;
+    }
+
+    public String getReferencePhase() {
+        return referencePhase;
+    }
+
+    public void setReferencePhase(String referencePhase) {
+        this.referencePhase = referencePhase;
     }
 }

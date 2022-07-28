@@ -27,14 +27,23 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Button button = findViewById(R.id.button);
         String path = this.getExternalFilesDir(null).getAbsolutePath();
-        String[] list = new String[10];
-        list[0] = "111";
-        list[1] = "222";
+        String[] list = new String[5];
+        list[0] = "避雷器名称";
+        list[1] = "电压等级";
+        list[2] = "测试模式";
+        list[3] = "参考源";
+        list[4] = "参考相";
 
-        ArrayList<String> list1 = new ArrayList<>();
-        list1.add("list1");
-        list1.add("list2");
-        list1.add("list3");
+        ArrayList<DeviceDataBean> list1 = new ArrayList<>();
+        list1.add(new DeviceDataBean("启亦001避雷器",1,
+                0, "电压分析法",
+                0, "主机PT单相电压参考",
+                0,"A"));
+//        list1.add("list2");
+//        list1.add(new DeviceDataBean("启亦002避雷器",2,
+//                0, "电压分析法",
+//                0, "主机PT单相电压参考",
+//                0,"A"));
 
         ExcelUtil excelUtil = ExcelUtil.INSTANCE;
         button.setOnClickListener(view -> {

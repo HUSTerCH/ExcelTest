@@ -12,7 +12,6 @@ import java.io.File
 import java.io.FileInputStream
 import java.io.IOException
 import java.io.InputStream
-import java.util.*
 
 /**
  * @author Nicole
@@ -97,6 +96,7 @@ object ExcelUtil {
                 sheet.addCell(Label(0, 0, filePath, arial14format) as WritableCell)
                 for (col in colName.indices) {
                     sheet.addCell(Label(col, 0, colName[col], arial10format))
+                    sheet.addCell(Label(col,2,colName[col], arial10format))
                 }
                 //设置行高
                 sheet.setRowView(0, 340)
@@ -139,20 +139,16 @@ object ExcelUtil {
                 inputStream = FileInputStream(File(fileName))
                 val workbook = Workbook.getWorkbook(inputStream)
                 writeBook = Workbook.createWorkbook(File(fileName), workbook)
-                val sheet = writeBook.getSheet(sheetNum-1)
-                for (j in 0..objList.size) {
+                val sheet = writeBook.getSheet(sheetNum - 1)
+                for (j in objList.indices) {
                     val demoBean: DeviceDataBean = objList[j] as DeviceDataBean
                     val list: MutableList<String> = ArrayList()
-                    list.add(demoBean.id.toString())
-                    list.add(demoBean.situation)
-                    list.add(demoBean.date)
-                    list.add(demoBean.deviceNum.toString())
-                    list.add(demoBean.identity.toString())
-                    list.add(demoBean.power.toString())
-                    list.add(demoBean.temperature.toString())
-                    list.add(demoBean.distance.toString())
-                    list.add(demoBean.voltageLevel.toString())
-                    for (i in 0..list.size) {
+                    list.add(demoBean.arresterName)
+                    list.add(demoBean.voltageLevel.toString());
+                    list.add(demoBean.testMode)
+                    list.add(demoBean.referenceSource)
+                    list.add(demoBean.referencePhase)
+                    for (i in 0 until list.size) {
                         sheet.addCell(
                             Label(
                                 i,
